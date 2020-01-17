@@ -1,0 +1,2 @@
+feature1 text file
+inside the feature1 branch

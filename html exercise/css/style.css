@@ -1,0 +1,175 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.header{
+    background-color:#dff9fb ;
+    width: 100%;
+    height:100px;
+}
+.header .brand-logo{
+    float: left;
+    padding: 5px 20px;
+}
+ul{
+    margin: 0;
+    padding: 0;
+}
+nav ul li{
+    list-style: none;
+    display: inline-block;
+    width: 130px;
+    padding: 30px;
+    margin-left: 50px;
+ }
+nav ul li a{
+    text-decoration: none;
+    text-transform: uppercase;
+    color: black;
+}
+nav ul li a:hover{
+    color: #22a6b3;
+    font-weight: 800;
+}
+
+.block-1 .bgimage{
+   
+    color: black;
+    text-align: center;
+    text-justify: auto;
+}
+
+.block-1 h1{
+    padding: 5% 10% 0 10%;
+    font-family: 'Bitter', serif;
+}
+.block-1 p{
+    padding: 5px 10% ;
+    font-family: 'Pacifico', cursive;
+
+}
+.block-2 h1{
+    font-family: 'Bangers', cursive;
+    text-decoration: underline;
+    text-align: center;
+}
+.block-2 .fa{
+    text-shadow: 1px 1px 1px #ccc;
+    font-size: 5em;
+}
+.block-2 .row{
+    padding: 40px;
+
+    text-align: center;
+}
+.block-2 i{
+    text-align:center;
+    padding: 20px;
+    color: white;
+    background-color:#0abde3;
+    width:150px
+}
+.block-2 .icon{
+    text-align: center;
+    padding: 5px ;
+}
+.block-2 h4{
+    font-weight: bold;
+    padding-top: 10px;
+}
+
+.block-3  {
+    margin-top: 50px;
+    
+}
+.block-3 h2{
+    font-family: 'Pacifico', cursive;
+    text-align: center;
+    font-weight: 900;
+}
+.block-3 h5{
+    font-family: 'Bitter', serif;
+    color:#8395a7;
+    text-align: center;
+}
+.block-3 .image-box .image{
+    min-height: 200px;
+    padding: 5px;
+    background-size: cover;
+}
+
+.img {
+    float:  left;
+    width:  280px;
+    height: 200px;
+    background-size: cover;
+    margin:10px;
+}
+
+.block-4{
+    margin-top: 2% ;
+    background-image: url('./../img/contact.jpeg') ;
+    opacity: 0.8;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    width: 100%;
+    min-height: 30vw;
+}
+
+.block-4 h1{
+    padding-top: 40px;
+    text-align: center;
+    font-weight: bold;
+    color: #fff;
+}
+.block-4 p{
+    text-align: center;
+    color: #fff;
+}
+input {
+    height: 100px;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .flex-container > div {
+    background-color:grey;
+    width: 250px;
+    margin: 10px;
+    text-align: center;
+    line-height: 75px;
+    font-size: 30px;
+  }
+
+  .image {
+      height :250px;
+      width: 250px;
+  }
+
+  form{
+      margin-top: 50PX;
+  }
+  input,textarea {
+      background-color:transparent !important;
+      border: 4px solid #d1d8e0;
+  }
+  ::placeholder {
+    color: red;
+    opacity: 1; /* Firefox */
+  }
+  .checkbox{
+      display: inline;
+      color: #white;
+  }
+  button{
+      background-color: transparent ! important;
+      width: 100px;
+  }
+  .icons{
+      font-size: 40px;
+  }

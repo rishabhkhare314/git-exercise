@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+    let date1 = prompt("Enter the date1 (MM/DD/YYYY)");
+    date3 = new Date(date1);
+    let date2 = prompt("Enter the date2 (MM/DD/YYYY)");
+    date4 = new Date(date2);
+    diff = (date3 - date4);
+    let newDateFormat=(diff/(1000*60*60*24));
+        let years=0,days=0,months=0;
+        temp = newDateFormat;
+        while(temp>0){
+                if((months==0 || months==2 || months==4 || months==6||months==7||months==9||months==11) && temp>=31){
+                    temp-=31;
+                    months++;
+                    if(months>=12){
+                        months=0;
+                        years++;
+                    }
+                }
+                else if((months==3 || months==5 || months==8 || months==10) && temp>=30){
+                    temp-=30;
+                    months++;
+                    if(months>=12){
+                        months=0;
+                        years++;
+                    }
+                }
+                else if(months==1 && temp>=28) {
+                    if((date4.getFullYear() + years) %4==0 ){
+                        temp-=29;    
+                    }
+                    else {
+                        temp-=28;
+                    }
+                    months++;
+                    if(months>12){
+                        months=0;
+                        years++;
+                    }
+                }
+                else {
+                        break;
+                    }
+            }
+    
+    console.log(years+" Years,"+months+" Months, "+temp+" days");
+    var Diff_In_Minutes = Math.floor(diff / (1000 * 60 ));
+    var Diff_In_Hour = Math.floor(diff / (1000 * 3600  ));
+    var Diff_In_Days = Math.floor(diff / (1000 * 3600 * 24 ));
+    var Diff_In_Months = Math.floor(Diff_In_Days /  30) ;  
+    var Diff_In_Years = Math.floor(Diff_In_Months / 12 );  
+    
+    if(Diff_In_Days < 0) {
+        document.write("in if")
+        document.write("Days : "+ -Diff_In_Days + '<br>')
+        document.write("Months : "+ Diff_In_Months + '<br>' )
+        document.write("Years : "+ -Diff_In_Years + '<br>' )
+    }
+    else {
+        document.write("in else"+ '<br>');
+        document.write("Days : "+Diff_In_Days)+ '<br>';
+        document.write("Months : "+ Diff_In_Months+ '<br>')
+        document.write("Years : "+ Diff_In_Years+ '<br>')
+        
+    }
+    
+    let message = ' ';05
+    message += Diff_In_Days + " days " 
+    message += Diff_In_Months + " months "
+    message += Diff_In_Years + " years ago \n"
+
+    // console.log(message)
+
+    document.write("Difference Minutes : "+ Diff_In_Minutes+ '<br><br><br>')
+    document.write("Difference Hour : "+ Diff_In_Hour+ '<br><br><br>')
+    document.write("Difference days : "+ Diff_In_Days+ '<br><br><br>')
+    </script>
+</body>
+</html>

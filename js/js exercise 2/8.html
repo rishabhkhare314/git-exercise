@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    let date2 = prompt("Enter the date1 (MM/DD/YYYY)");
+    date3 = new Date(date2)
+    let date1 = prompt("Enter the date2 (MM/DD/YYYY)");
+    date4 = new Date(date1);
+    console.log("date 4 is " +date4)
+    diff = date3.getTime() - date4.getTime();
+    var Diff_In_Days = diff / (1000 * 3600 * 24); 
+    console.log(Diff_In_Days);
+    if(Diff_In_Days < 0) {
+        document.write(" Differnce  between two dates Days has :" + -Diff_In_Days)
+    }
+    else {
+        document.write(" Differnce  between two dates Days has :" + Diff_In_Days)
+    }
+    </script>
+</body>
+</html>

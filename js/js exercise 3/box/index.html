@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        .container {
+            margin-top: 14vh;
+            margin-left: 33%;
+        }
+
+        #box1 {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+
+        #box2 {
+            width: 200px;
+            height: 200px;
+            background-color: greenyellow;
+        }
+
+        #box3 {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+
+        #box4 {
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+        }
+
+        h3,
+        h1,
+        h2,
+        h4,
+        h5,
+        h6 {
+            text-align: center;
+            margin-top: 50%;
+        }
+    </style>
+</head>
+
+<body class="container">
+    <div class="row">
+        <div class="col-md-6 col-sm-6 col-xs-6" id="box1">
+            <h5 id="show"></h5>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-6" id="box2" onclick="box1()">
+            <h4>Click Me First!!!</h4>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 col-sm-6 col-xs-6" id="box3">
+
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-6" id="box4">
+
+        </div>
+    </div>
+
+    <script>
+        let i = 0, j = 0;
+        window.onload = function () {
+            window.alert("BOX-4");
+
+        }
+
+        function box1() {
+            document.getElementById('show').innerHTML = "OOPS SOMETHING WENT WRONG"
+        }
+
+
+        function box3() {
+            let color = ['#9980FA', '#833471', '#1289A7'];
+            if (j > color.length)
+                j = 0;
+            document.getElementById("box3").style.backgroundColor = color[j];
+            j++;
+        }
+
+        function box4(e) {
+            //console.log("hiiiiiiiii")
+            console.log(e.keyCode)
+         //   let color = ['#2980b9', '#8e44ad', '#16a085', '#d35400', 'black'];
+         let color = ['red', 'blue', 'orange', 'yellow', 'black'];
+           console.log(color.length)
+            if (e.keyCode == '38' || e.keyCode == '39') {
+                document.getElementById("box4").style.backgroundColor = color[i];
+                i++;
+                if(i == color.length){
+                    i = 0;
+                }
+                
+                console.log("up or right key");
+            }
+            else if (e.keyCode == '40' || e.keyCode == '37') {
+                if(i < 0){
+                    i = color.length-1;
+                }
+                console.log("Down or left key is :" + color[i])
+                document.getElementById("box4").style.backgroundColor = color[i];
+                console.log("down or left key");
+                i--;
+                setInterval(box4, 1000);
+            }
+        }
+        document.onkeydown = box4;
+        setInterval(box3, 1000);
+
+    </script>
+</body>
+
+</html>

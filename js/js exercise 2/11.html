@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        email = prompt("Enter a Email");
+        hideEmail(email);
+       function hideEmail(email) {
+            console.log(email)
+            splitted = email.split('@');
+            //console.log(splitted)
+            splitted1 = splitted[0];
+            totalLength = splitted1.length;
+            //console.log(splitted1)
+            averageLength = ( splitted1.length )/2;
+            //console.log(averageLength);
+            splitted1 = splitted1.substring(0,splitted1.length - averageLength);
+            //console.log(splitted1);
+           count = totalLength - splitted1.length;
+            for (i = 0; i < count ; i++){
+                splitted1 += '*';
+            //  console.log(splitted1);
+            //  console.log(i);
+            
+            }
+            document.write(splitted1 + '@' + splitted[1])
+       }
+
+    </script>
+</body>
+</html>
+

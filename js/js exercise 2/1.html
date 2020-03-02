@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Table</title>
+   
+</head>
+<body>
+<div id="array_list"></div>
+<input type="text" id="num">
+<input type="button" id="btn" value="Submit" onclick="show()">
+
+<h4>First Element of an Array</h4>
+<div id="first"></div>
+
+<h4>Last Element of an Array</h4>
+<div id="second"></div>
+</body>
+
+
+<script>
+arr=["January","Feburary"," March" ,"April","May","June",
+"July","August","September","October","November",
+"December"];
+
+document.getElementById('array_list').innerHTML = arr
+
+function count(){
+    n = document.getElementById('num').value
+    console.log(n)
+    return n
+}
+let number = count();
+function show(){
+    let str1="";
+    let str2;
+    for(let i=0 ; i < number ; i++) {
+       str1 += arr[i];
+    }
+
+    let j=(-number) 
+     str2 = arr.slice(j) 
+     
+     
+    document.getElementById('first').innerText=str1
+    document.getElementById('second').innerText=str2
+}
+</script>
+</html>

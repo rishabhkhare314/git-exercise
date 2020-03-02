@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+   n =  prompt("Enter a Number");
+   let value = n.toString();
+   let result =[];
+  // console.log(result);
+//    console.log("first value"+value[1]);
+//    console.log("String length is :----" + value.length);
+    for(let i =0 ; i<value.length ;i++) {
+       if((value[i-1]%2 ==0) && (value[i]%2==0)){
+        result.push('-', value[i]);
+       }
+       else {
+        result.push(value[i]);
+       }
+   }
+    //console.log(result)
+    z= result.join('')
+    document.write(z)
+</script>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2 id="=arr"></h2>
+    <h2 id="arr2"></h2>
+    <script>
+        arr=[]
+        arr1 =[]
+    start = prompt("Enter starting value");
+    end = prompt("Enter Ends value");
+    position = prompt("Enter Spacing index");
+    startIndex = start.charCodeAt();
+    endIndex = end.charCodeAt();
+    for (let i = startIndex; i <= endIndex; i++) {
+    arr.push(String.fromCharCode(i))
+     }
+    //document.getElementById('arr').innerHTML=  " Array :-"+arr;
+    document.write(" Array :-" + arr + '\n')
+    for (let j = 1; j < arr.length; j++) {
+        arr.splice(j,position-1)
+    }
+    
+   // document.getElementById('arr2').innerHTML= " After positioning :-"+arr;
+   document.write(" Array After positioning:-" + arr)
+
+
+    </script>
+</body>
+</html>

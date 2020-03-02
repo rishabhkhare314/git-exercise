@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   
+    <style>
+        #register{
+            position: absolute;
+            top: 40%;
+            left: 40%;
+            transform: translate(-40%,-45%);
+            border: 2px solid;
+            width: 50%;
+       
+        }
+      
+        form{
+            margin: 4% 10%
+        }
+        .pull-right{
+            margin-right: 10%;
+        }
+        .heading{
+            font-size: 20px;
+            padding: 10px 10em 5px 10em;
+            text-align: center;
+            display: inline-block
+            
+        }
+        .block{
+            background-color: #c7ecee;
+        }
+        input[type='button']{
+            background-color:#f8c291;
+            padding: 10px;
+            width: 20%;
+            margin-bottom: 10px;
+        }
+        .link {
+            border-right: 3px solid;
+            margin-top: 10px;
+          
+        }
+    </style>
+</head>
+<body>
+   
+    <div id="register">
+        <div class="block">
+            <a href="index.html" class="heading link ">Login</a>
+            <a href="login.html" class="heading ">Signup</a>
+            <hr>
+        </div >
+        <form method="POST" >
+            <input type="text" id="username"  class="form-control " placeholder="Enter username"><br>
+            <input type="text" id="password"  class="form-control" placeholder="Enter password" data-container="body" data-trigger="focus"  
+            data-toggle="popover" data-placement="right" data-content="Password must contain Alphanumeric value (a-z,0-9,@!--)"> <br>
+            <input type="text" id="cnfrm_password"  class="form-control" placeholder="Enter Confirm password" ><br>
+            <input type="radio" name="role" id="role1" value="admin">Admin
+            <input type="radio" name="role" id="role2" value="student"> Student<br><br>
+            <input type="button" id="submit" value="Create an Account"  class="pull-right" onclick="signUp()">
+</form>
+</div>
+
+<script>
+
+    function signUp() {
+        let userRole;
+        let arr = JSON.parse(localStorage.getItem('users')) || [];
+        let uname = document.getElementById('username').value;
+        let pass = document.getElementById('password').value;
+        let confirmPass = document.getElementById('cnfrm_password').value;
+        let role = document.getElementsByName('role');
+        let passwordValidation = /^\w/;
+        for (let i = 0; i < 2; i++) {
+            if(role[i].checked ) {
+                userRole = role[i].value
+
+              }
+        }
+        if(pass === confirmPass)  {
+            if(userRole == undefined) {
+                alert("Please Select a Role")
+            }
+            if( passwordValidation.test(pass) ) {
+                let obj = {
+                username : uname,
+                password : pass,
+                role : userRole,
+                courses : []
+                }
+                
+                arr.push(obj)
+                console.log(arr)
+                localStorage.setItem('users',JSON.stringify(arr))
+                alert("Signup Successfully")
+             }
+            else {
+                alert("Password must contain Alphanumeric values")
+           }
+            }
+       else{
+           alert("Passwort not match")
+       }
+    }
+
+
+    $(document).ready(function(){
+                $('[data-toggle="popover"]').popover();   
+            });
+            
+
+            $('.popover-dismiss').popover({
+            trigger: 'focus'
+            })
+</script>
+</body>
+</html>

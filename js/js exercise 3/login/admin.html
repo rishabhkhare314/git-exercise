@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        body {
+            background-color: #dfe6e9;
+        }
+
+        header {
+            width: 100%;
+            background-color: #0084d6;
+            height: 50px;
+        }
+
+        .brand-name {
+            padding-top: 5px;
+            font-size: 30px;
+            color: aliceblue;
+            font-family: Georgia, Times, 'Times New Roman', serif;
+            float: left;
+        }
+
+        .user {
+            padding-top: 10px;
+            font-size: 20px;
+            color: whitesmoke;
+            margin-right: 10px;
+        }
+
+        .courses {
+            width: 90%;
+            /* border: 2px solid; */
+            height: 100px;
+            text-align: center;
+        }
+
+        button {
+            width: 100%;
+            background-color: #0084d6;
+            padding: 10px;
+        }
+
+        .box {
+            margin-top: 50px;
+            text-align: center;
+            display: block;
+        }
+
+        img {
+            width: 100%;
+            height: 200px;
+        }
+
+        .block {
+            text-align: left;
+            font-size: 18px;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .fa {
+            padding: 20px;
+            font-size: 20px;
+        }
+
+        hr {
+            border-bottom: 2px solid black;
+            rotate: 90deg;
+            /* margin-left: -8em; */
+            width: 300px;
+            margin-right: 100px;
+        }
+
+        form input[type="text"] {
+            width: 100%;
+            margin: auto;
+        }
+
+        form label {
+            margin-left: auto;
+        }
+    </style>
+</head>
+
+<body onload="load()">
+
+    <header>
+        <div class="container">
+            <div class="brand">
+                <div class="brand-logo"></div>
+                <div class="brand-name">Rapidops</div>
+            </div>
+            <div>
+                <div><a href="index.html" class="user pull-right" onclick="logout()">Logout ( <span id="name"></span>) </a></div>
+                </div>
+            </div>
+
+
+        </div>
+    </header>
+    <div class="container">
+        <div class="row block">
+            <div class="col-md-9 col-sm-9" id="show-courses">
+
+            </div>
+            <!-- <div class="col-md-3 col-sm-3 box">
+            <div class="card">
+                <img src="https://img.favpng.com/23/1/21/web-development-responsive-web-design-advanced-css-cascading-style-sheets-html-png-favpng-M7sVvRLfHDNvNRSJBdnNzs6Xi.jpg" alt="html">
+            </div>
+            <button>Assign Course</button>
+        </div>
+        -->
+
+
+            <div class="col-md-3 col-sm-3 box pull-right">
+                <div class="card block">
+                    <ul>
+                        <li> <i class="fa fa-plus" aria-hidden="true"></i><a href="#" data-toggle="modal"
+                                data-target="#assign-course">Assign New Course</a></li>
+                        <li> <i class="fa fa-eye" aria-hidden="true"></i><a href="#" data-toggle="modal"
+                                data-target="#courses">Show Courses</a></li>
+                        <li><i class="fa fa-list" aria-hidden="true"></i><a href="#" data-toggle="modal"
+                                data-target="#student-list">Student list</a></li>
+                        <li> <i class="fa fa-plus" aria-hidden="true"></i><a href="#" data-toggle="modal"
+                                data-target="#exampleModal">Add New Course</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+        </div>
+        <!-- Add Courses -->
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="exampleModalLabel1">Add New Course</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form id="addCourse">
+                            <label>Image</label>
+                            <input type="text" name="coursename" id="img" class="form-control form-group">
+                            <label>Course Name</label>
+                            <input type="text" name="coursename" id="coursename" class="form-control form-group">
+                            <label>Material link</label>
+                            <input type="text" name="material" id="material" class="form-control form-group">
+
+                        </form>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary btn-block" onclick="addCourses()"> Add
+                                Course</button>
+                            <button type="button" class="btn btn-secondary btn-block"
+                                data-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Assign Courses -->
+        <div class="modal fade" id="assign-course" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="exampleModalLabel">Assign New Course</h4>
+                    </div>
+                    <div class="modal-body">
+
+                        <ul id="course-data"></ul>
+
+                        <ul id="assign-data"></ul>
+                        <ul id="data"></ul>
+
+                        <div class="modal-footer">
+                            
+                            <button type="button" class="btn btn-secondary btn-block"
+                                data-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--------------------------------------------------------  Students list---------------------------- -->
+        <div class="modal fade" id="student-list" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="exampleModalLabel">Assign New Course</h4>
+                    </div>
+                    <div class="modal-body">
+
+                        <ul id="student-list">
+
+                        </ul>
+                        <!-- <div id=""></div> -->
+
+                        <div class="modal-footer">
+
+                            <button type="button" class="btn btn-secondary btn-block"
+                                data-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--------------------------------------------------------  Courses  list---------------------------- -->
+        <div class="modal fade" id="courses" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="exampleModalLabel">All Courses</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <table>
+                                <ul id="courses"></ul>
+                            </table>
+                        </form>
+                        <div class="modal-footer">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="admin.js"></script>
+
+</html>

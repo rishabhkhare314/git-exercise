@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+    
+        ul{
+            list-style: bullet;
+        }
+        ul li{
+            padding-top: 10px;
+        }
+      
+    </style>
+</head>
+
+<body>
+    <!-- <span>Case Sensitive</span> <input type="radio" value="sensitive" name="check" id="sensitive" onchange="check()">
+    <span>Case Insensitive</span> <input type="radio" value="insensitive" name="check" id="insensitive" > -->
+    <div class="filter">
+        <input type="text" id="value" value="" onkeyup="filter()">
+        <input type="button" value="Search">
+        <ul id="show"></ul>
+    </div>
+
+
+
+    <script>
+        let arrOfNames = ["Ashish Shah", "Rashmin Chhatrala", "Yash Dubey",
+            "Prakash Jain", "Yashraj Singh", "Viraj Sinha", "Rajesh Kumar",
+            "Mahesh Marwadi", "Suresh Sahni", "Amar Vilas", "Virdas Singhania", "Rajeshwari Bindra",
+            "Birendra Bhalerao", "Virendra Bhupati", "Bhupendra Singh", "Bhuvam Bam",
+            "Shri Raj", "Prashant Kamle", "Kamlesh Tomar", "Risabh Khare", "Rishi Kohli",
+            "Kunwar Kharwanda", "Kartik Koli", "Komal Jain", "Kartikey Pandey"];
+        //console.log(arrOfNames);
+        function filter() {
+            value = document.getElementById('value').value;
+            search(value);
+        }
+
+        function search(inp) {
+            document.getElementById('show').innerHTML = "";
+            arrOfNames.forEach(element => {
+                if (element.includes(inp)) {
+                    z = element.indexOf(inp);
+                    //console.log(z);
+                    let before = element.slice(0,z);
+                    let main = element.slice(z,z+inp.length);
+                    let after = element.slice(z+inp.length);
+                    //console.log(before);
+                    show.innerHTML += ` <li class="list-group-item"  >${before}<mark>${main}</mark>${after}</li>`
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

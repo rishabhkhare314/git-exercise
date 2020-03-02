@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h5>Shuffle an array</h5>
+    <script>
+    let arr = [];
+    let n= prompt("Enter an Element of an array;");
+    for(i = 1; i <= n; i++){
+        let value = prompt("Enter Element");
+        arr.push(value);
+    }
+    document.write("Array list : " + arr  )
+    document.write("Shuffle Array list : " + shuffle(arr) )
+
+
+    function shuffle(array) {
+        return array.sort(() => Math.random() - 0.5);
+
+    }
+    
+    </script>
+</body>
+</html>

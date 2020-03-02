@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   
+    <style>
+        #register{
+            position: absolute;
+            top: 40%;
+            left: 40%;
+            transform: translate(-40%,-45%);
+            border: 2px solid;
+            width: 50%;
+       
+        }
+      
+        form{
+            margin: 4% 10%
+        }
+        .pull-right{
+            margin-right: 10%;
+        }
+        .heading{
+            font-size: 20px;
+            padding: 10px 10em 5px 10em;
+            text-align: center;
+            display: inline-block
+            
+        }
+        .block{
+            background-color: #c7ecee;
+        }
+        input[type='submit']{
+            background-color:#f8c291;
+            padding: 10px;
+            width: 20%;
+            margin-bottom: 10px;
+        }
+        hr{
+            rotate: 90deg;
+            font-size: 100px
+        }
+        .link {
+            border-right: 2px solid;
+        }
+    </style>
+</head>
+<body>
+   
+    <div id="register">
+        <div class="block">
+            <a href="login.html" class="heading link">Signup</a>
+            <a href="index.html" class="heading ">Login</a>
+         
+        </div >
+        <form >
+
+            <input type="text" id="username"  class="form-control" placeholder="Enter username"><br>
+            <input type="text" id="password"  class="form-control" placeholder="Enter password"> <br>
+            <input type="text" id="cnfrm_password"  class="form-control" placeholder="Enter Confirm password"><br>
+            <input type="radio" name="role" id="admin">Admin
+            <input type="radio" name="role" id="student"> Student<br><br>
+            <input type="submit" id="submit" value="Signup"  class="pull-right" >
+</form>
+</div>
+</body>
+</html>

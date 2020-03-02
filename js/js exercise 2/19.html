@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h2 id="arr"></h2>
+    <h4 id="delArr"></h4>
+    <h4 id="addArr"></h4>
+    <script>
+        let arr=['abc','def','ghi','jkl','mno','pqr'];
+        document.getElementById('arr').innerHTML = arr;
+        document.write = "arr";
+        let deleteObj = +prompt("Enter the number for Delete an Object :");
+        deleteObj-=1;
+        console.log(deleteObj)
+        arr.splice(deleteObj,1)
+        document.getElementById('delArr').innerHTML = arr;
+        let addObj = +prompt("Enter the  Object number :");
+        addObj-=1;
+        let objValue = prompt("Enter the  Object Value :");
+        arr.splice(addObj,0,objValue);      
+        document.getElementById('addArr').innerHTML = arr;
+    </script>
+</body>
+</html>

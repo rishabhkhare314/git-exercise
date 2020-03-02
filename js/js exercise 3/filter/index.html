@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <span>Case Sensitive</span> <input type="radio" value="sensitive" name="check" id="sensitive" onchange="check()">
+    <span>Case Insensitive</span> <input type="radio" value="insensitive" name="check" id="insensitive" > -->
+    <div class="filter">
+        <input type="text" id="value" value="" onkeyup="filter()">
+        <input type="button" value="Search">
+        <ul id="show"></ul>
+    </div>
+   
+
+
+    <script>
+    //     window.onload=function(){
+    //         document.getElementById('value').disabled=true;
+           
+    //     }
+    //    document.getElementsByName('sensitive').onchange=function (){
+    //     if(document.getElementById('sensitive').checked==true ){
+    //         document.getElementById('value').disabled=false;
+    //        }
+    //    }
+    //    document.getElementById('insensitive').onchange=function (){
+    //     if(document.getElementById('insensitive').checked==true ){
+    //         document.getElementById('value').disabled=false;
+    //        }
+    //    }
+
+    //     function check() {
+    //         let sensitive = document.getElementById('sensitive');
+    //         let insensitive = document.getElementById('insensitive');
+    //         console.log(sensitive);
+    //         console.log(insensitive);
+    //         if(sensitive.checked==true) {
+    //             filter();
+    //         }
+    //         else {
+    //             filter();
+    //         }
+    //     }
+
+
+
+
+
+        let arrOfNames = ["Ashish Shah", "Rashmin Chhatrala", "Yash Dubey",
+            "Prakash Jain", "Yashraj Singh", "Viraj Sinha", "Rajesh Kumar",
+            "Mahesh Marwadi", "Suresh Sahni", "Amar Vilas", "Virdas Singhania", "Rajeshwari Bindra",
+            "Birendra Bhalerao", "Virendra Bhupati", "Bhupendra Singh", "Bhuvam Bam",
+            "Shri Raj", "Prashant Kamle", "Kamlesh Tomar", "Risabh Khare", "Rishi Kohli",
+            "Kunwar Kharwanda", "Kartik Koli", "Komal Jain", "Kartikey Pandey"];
+        console.log(arrOfNames);
+
+
+        function filter() {
+
+          // check()
+            value = document.getElementById('value').value;
+            console.log(value)
+            search(value);
+        }
+
+        // function zz(params) {
+        //     console.log("hello");
+        //     console.log();
+        //   //  console.log(arrOfNames != value);
+        //     if (arrOfNames.includes(value)) {
+
+        //     }
+        // }
+        function search(inp) {
+            document.getElementById('show').innerHTML = "";
+            arrOfNames.forEach(element => {
+           // if(sensitive){
+                if (element.includes(inp)) {
+                    show. innerHTML += ` <li class="list-group-item" onclick="assignData()" >${element}</li>`
+                }
+          //  }
+            // else{
+            //     console.log(element.toLowerCase());
+            //     if ((element.toLowerCase()).includes(inp)) {
+            //         show. innerHTML += ` <li class="list-group-item" onclick="assignData()" >${element}</li>`
+            //     }
+            // }
+            
+            
+                
+                   // document.getElementById('show').innerHTML += '<mark>' + element + '<mark>';
+                    //   document.body.style.background = "yellow";
+                    
+                
+            });
+        }
+
+    </script>
+</body>
+
+</html>

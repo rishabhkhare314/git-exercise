@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+        header {
+            width: 100%;
+            background-color: #0084d6;
+            height: 50px;
+        }
+
+        .brand-name {
+            padding-top: 5px;
+            font-size: 30px;
+            color: aliceblue;
+            font-family: Georgia, Times, 'Times New Roman', serif;
+            float: left;
+        }
+
+        .user {
+            padding-top: 10px;
+            font-size: 20px;
+            color: whitesmoke;
+            margin-right: 10px;
+        }
+
+        #showC {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 20px;
+            font-weight: bold;
+
+        }
+
+        .card {
+            padding: 20px;
+            border: 1px solid;
+
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body onload="load()">
+    <header>
+        <div class="container">
+            <div class="brand">
+                <div class="brand-logo"></div>
+                <div class="brand-name">Rapidops</div>
+            </div>
+            <div>
+                <div><a href="index.html" class="user pull-right" onclick="logout()">Logout ( <span id="name"></span>)
+                    </a></div>
+            </div>
+
+
+        </div>
+        </div>
+
+
+    </header>
+    <div class="container">
+        <div class="row " id="showC">
+
+
+        </div>
+    </div>
+    <script>
+
+        function showCourses() {
+            let arr = [];
+            currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            document.getElementById('name').innerHTML = currentUser[0].name;
+            let show = JSON.parse(localStorage.getItem('users'));
+            let course = JSON.parse(localStorage.getItem('course'));
+          //  let len = (show.length >= course.length) ? show.length : course.length;
+            for (let i = 0; i < show.length; i++) {
+                
+                if (show[i] != undefined) {
+                    if (currentUser[0].name === show[i].username) {
+      
+                        console.log(i)
+                        z = show[i].courses
+                        // for (let j = 0; j < course.length; j++) {
+                        //     // console.log(z[j])
+                        //     // console.log(""course.coursename)
+                        //     if (z[j] = course.coursename) {
+                        //         console.log("match")
+                        //
+                        //     }
+                        // }
+
+                        show[i].courses.forEach(element => {
+                            console.log("hiiiiiiiiiiiii")
+                            let indexC = show[i].courses.indexOf(element);
+                            if (element == course[indexC].coursename) {
+                                document.getElementById("showC").innerHTML += `<div class="col-md-3 col-sm-4 box">
+                                            <div class="card">
+                                            <a href="${course[indexC].material}" >
+                                                 <img src="${course[indexC].image}" alt="image " width=200px height=200px >
+                                             
+                                        <h4 class="pt-sm-5">${course[indexC].coursename}</h4></a></div>  </div>`
+                            }
+
+                        });
+
+
+                     
+
+
+                    }
+                }
+
+            }
+        }
+
+
+        function logout() {
+            localStorage.removeItem('currentUser');
+        }
+        showCourses()
+
+
+        function load() {
+
+            let currentUser = localStorage.getItem('currentUser');
+            console.log(currentUser)
+            if (currentUser === '' || currentUser === null) {
+                window.location.href = "./index.html"
+            }
+
+        }
+    </script>
+</body>
+
+</html>

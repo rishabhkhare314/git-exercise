@@ -59,15 +59,7 @@ function editRow() {
     //return rindex;
     clear_value();
 }
-function selectRow() {
-    /* let r = selectRow();
-    //let r_num = rw.parentNode.parentNode.rowIndex;
-    //alert(r_num);
-    alert(r);
-    table.rows[r].cells[0].innerHTML=document.getElementById("fname").value;
-    table.rows[r].cells[1].innerHTML=document.getElementById("lname").value;
-    document.getElementById("add").value ="Update";  */
-}
+
 function static_iteration() {
     table = document.getElementById("table1");
     btn_edit = document.createElement("input");

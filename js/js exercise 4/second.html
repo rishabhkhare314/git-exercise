@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+
+
+        let len = prompt("Enter  number ");
+        let str = "";
+        for (let i = 0; i <= len; i++) {
+            for (let j = 0; j < len - i; j++) {
+                str += `\xa0`;
+            }
+            for (let k = 0; k <= i; k++) {
+                str += "*";
+            }
+            str += "<br>";
+        }
+
+        document.getElementById('box').innerHTML = str;
+
+    </script>
+</body>
+
+</html>

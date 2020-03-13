@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const userDetails = [{ id: 1, name: "Rishabh", Sports: ['Table-Tennis', 'Football'], },
+        { id: 1, name: "Ravindra", Sports: ['Chess', 'Cricket'], },
+        { id: 1, name: "Ravi", Sports: ['Cricket', 'Football'], },
+        ]
+        // let arr = [];
+         function getSports(userDetails) {
+        let map = new Map();
+        let user = [];
+        for (let i = 0; i < userDetails.length; i++) {
+            for (let j = 0; j < userDetails[i].Sports.length; j++) {
+                if (map.has(userDetails[i].Sports[j])) {
+                    user = map.get(userDetails[i].Sports[j]);
+                    user.push(userDetails[i].name);
+                    map.set(userDetails[i].Sports[j], user);
+                }
+                else {
+                    let user = [];
+                    user.push(userDetails[i].name);
+                    map.set(userDetails[i].Sports[j], user);
+                }
+            }
+        }
+        return map;
+    }
+        let arrayMap = getSports(userDetails);
+        for (let entries of arrayMap) {
+            document.write(entries[0]+": ");
+            document.write(entries[1]);
+            document.write("<br>")
+        }
+    </script>
+
+
+
+</body>
+
+</html>

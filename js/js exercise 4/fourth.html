@@ -13,21 +13,19 @@
     <script>
         let len = prompt("enter number");
         let str =" " ;
-        for (let i = 0; i < (len * 2) - 1; i++) {
-            for (let j = 0; j <= len + 1; j++) {
-                if (i == j) {
-                    str += "*";
-                }
-                else if (j == len - i +1) {
-                    str += "*";
-                }
+        for (let i = 0; i <= len ; i++) {
+            for (let j = 0; j <= len; j++) {
+                if( i == j || j == len-i+1 ) {
+                   str += "*";
+                 }
+        
                 else {
                     str += `\xa0`;
                 }
-
-            }
-            str += "<br>";
-        }
+        
+         }
+            str+='\n'
+    }
         document.getElementById('box').innerHTML = str;
 
 

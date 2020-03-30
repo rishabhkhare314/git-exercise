@@ -10,7 +10,7 @@ let addData = () => {
     let obj = {
         method: "POST",
         header: {
-            // "Content-Type": "aplication/json",
+             "Content-Type": "application/json",
             // "Accept": "aplication/json",
         },
         body: JSON.stringify({

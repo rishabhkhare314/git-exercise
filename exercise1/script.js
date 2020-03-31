@@ -5,12 +5,12 @@ var tbody = document.getElementById('tbody');
 
 let addData = () => {
 
-    console.log(first.value)
-    console.log(last.value)
+    // console.log(first.value)
+    // console.log(last.value)
     let obj = {
         method: "POST",
-        header: {
-             "Content-Type": "application/json",
+        headers: {
+            "Content-Type": "application/json",
             // "Accept": "aplication/json",
         },
         body: JSON.stringify({
@@ -20,16 +20,22 @@ let addData = () => {
 
     }
     console.log(obj)
-    fetch('http://localhost:8000/api/addUser', obj)
-        .then(
-            res => res.json()
-        )
-        .then(add => console.log(add))
+
+    fetch('http://localhost:9000/api/addUser', obj)
+        .then((response) => response.json())
+        .then((data) => {
+            console.log('Success:', data);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+
+
     showData();
 }
 
 let showData = () => {
-    fetch('http://localhost:8000/api/getUser')
+    fetch('http://localhost:9000/api/getUser')
         .then(
             res => res.json()
         )
@@ -52,29 +58,50 @@ let showData = () => {
 }
 
 let edit = (id) => {
-    console.log(id);
-    let obj = arr[id];
-    first.value = obj.first;
-    last.value = obj.last
-    document.getElementById('addbtn').innerText = "Update";
-    addbtn.setAttribute('onclick', `update(${id})`)
-}
+    fetch(`http://localhost:9000/api/getUser/${id}`)
+        .then(
+            res => res.json()
+        )
+        .then(arr => {
+            first.value = arr.firstName;
+            last.value = arr.lastName
+            document.getElementById('addbtn').innerText = "Update";
+            addbtn.setAttribute('onclick', `update("${id}")`)
+        }
+        )
+    }
 
 let update = (id) => {
-    console.log(id)
-    first = first.value;
-    last = last.value;
-    obj = arr[id];
-    obj.first = first;
-    obj.last = last;
-    showData();
-    document.getElementById('addbtn').innerText = "ADD";
-    addbtn.setAttribute('onclick', `addData()`)
+
+    let obj = {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            firstName: first.value,
+            lastName: last.value
+        })
+
+    }
+    console.log(obj)
+
+    fetch(`http://localhost:9000/api/updateUser/${id}`, obj)
+        .then((response) => response.json())
+        .then((data) => {
+            console.log('Success:', data);
+            showData()
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+
+
 }
 
 let del = (id) => {
     console.log(id)
-    fetch(`http://localhost:8000/api/deleteUser/${id}`, {
+    fetch(`http://localhost:9000/api/deleteUser/${id}`, {
         method: "Delete"
     })
         .then(
@@ -83,7 +110,7 @@ let del = (id) => {
         .then(
             data => console.log("data")
         )
-  
+
     showData()
 }
 showData()

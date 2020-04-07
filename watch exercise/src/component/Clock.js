@@ -10,27 +10,45 @@ class Clock extends Component {
 //     }, 1000);
 
 // }
+
+
 constructor(props) {
     super(props)
 
     this.state = {
-         time :new Date()
-    }
+         date :new Date()
+    };
+    
 }
+
 currentTime = () => {
     this.setState({
-        time : new Date()
+        date : new Date()
     })
 }
 
 componentWillMount= () => {
     setInterval (()=> this.currentTime(),1000)
+    // if(console.log(this.state.date.getHours()) <= 11){
+    //    set = {
+    //         format : 'am'
+    //     }
+    // else{
+    //     set = {
+    //         format : 'pm'
+    //     }
+    // }
+    // }
 }
-    render() {
+
+render() {
+        
         return (
+            
             <div>
-                <h1>{this.state.time.toLocaleTimeString()}</h1>
-                {this.call}
+                <h1>{this.state.date.toLocaleTimeString()}</h1>
+                
+               
             </div>
         )
     }

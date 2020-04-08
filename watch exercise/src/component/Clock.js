@@ -47,7 +47,7 @@ render() {
             
             <div>
                 <h1>{this.state.date.toLocaleTimeString()}</h1>
-                
+                <h1>{this.state.date.toTimeString()}</h1>
                
             </div>
         )

@@ -27,7 +27,7 @@ currentTime = () => {
     })
 }
 
-componentWillMount= () => {
+componentDidMount= () => {
     setInterval (()=> this.currentTime(),1000)
     // if(console.log(this.state.date.getHours()) <= 11){
     //    set = {
